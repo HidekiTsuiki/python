@@ -2,10 +2,9 @@
 a = 1
 def fact(n):
     '''n の階乗を計算する'''
-    ret = 1
-    for i in range(1,n+1):
-        ret *= i
-    return ret
+    if(n == 1):
+        return a
+    return n*fact(n-1)
 
 fact100 = fact(100)
 print(fact(10))

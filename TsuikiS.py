@@ -1,15 +1,17 @@
 class TsuikiStrategy:
     ''' 前のが当たったらそれを引く戦略
     インスタンス変数:
+        n : スロットマシンの台数
         my : 次に引く手
     '''
-    def __init__(self):
+    def __init__(self, n):
+        self.n = n
         self.my = 0
     def learn(self, k, result):
-        if (result == 1):
-            self.my = self.my;
+        if result == 1:
+            self.my = self.my
         else:
-            self.my = (self.my + 1)% MultiArmedBandit.NUM
+            self.my = (self.my + 1) % self.n
 
     def choice(self):
         return self.my
